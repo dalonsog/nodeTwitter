@@ -4,6 +4,8 @@
   "description": "A MEAN stack based Twitter app. ",
   "main": "app.js",
   "scripts": {
+    "rundb":"mongod --dbpath=../node/mongodb/data",
+    "start": "node server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
