@@ -4,8 +4,8 @@
   "description": "A MEAN stack based Twitter app. ",
   "main": "app.js",
   "scripts": {
-    "rundb":"mongod --dbpath=../node/mongodb/data",
-    "start": "node server",
+    "rundb": "mongod --dbpath=../node/mongodb/data",
+    "start": "node app/server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -29,8 +29,14 @@
   },
   "homepage": "https://github.com/dalonsog/nodeTwitter#readme",
   "dependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
+    "express-jwt": "^3.4.0",
+    "jsonwebtoken": "^7.1.8",
     "mongoose": "^4.5.8",
-    "morgan": "^1.7.0"
+    "morgan": "^1.7.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
   }
 }
