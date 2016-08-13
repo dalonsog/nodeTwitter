@@ -4,15 +4,22 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var crypto = require('crypto');
 var jwt = require('jsonwebtoken');
+var Tweet = require('./tweet');
 
 // Schema definition
 var User = new Schema({
   email: { type: String, unique: true, required: true },
   name: { type: String, required: true },
-  screenname: { type: String, required: false },
-  avatar: { type: String, required: false },
+  screenname: String,
+  avatar: String,
   hash: String,
-  salt: String
+  salt: String,
+  tweets: [{ type: Schema.ObjectId, ref: 'Tweet' }],
+  following: [{ type: Schema.ObjectId, ref: 'User' }],
+  followers: [{ type: Schema.ObjectId, ref: 'User' }],
+  likes: [{ type: Schema.ObjectId, ref: 'Tweet' }]
+}, {
+    timestamps: true
 });
 
 /**
@@ -56,6 +63,30 @@ User.methods.generateJwt = function () {
 
   return jwt.sign(payload, 'MY_SECRET', { expiresIn: expDate });
 };
+
+/**
+**
+**/
+User.methods.getBasicDetail = function () {
+  return {
+    name: this.name,
+    screenname: '@' + this.screenname,
+    avatar: this.avatar,
+    tweets: this.tweets.length,
+    followers: this.followers.length,
+    following: this.following.length
+  };
+}
+
+/**
+**
+**/
+User.methods.getTweets = function () {
+  return mongoose.model('User', User)
+          .findOne({ id: this._id })
+          .populate('tweets')
+          .exec();
+}
 
 // Exposes the Schema as a Mongoose model
 module.exports = mongoose.model('User', User);

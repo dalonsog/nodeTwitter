@@ -8,19 +8,23 @@ var User = require('../models/user');
 **
 **/
 module.exports.register = function (req, res) {
-  var user = new User();
+  var userData = {
+    name: req.body.name,
+    email: req.body.email,
+    password: req.body.password
+  };
 
-  user.name = req.body.name;
-  user.screenname = req.body.name;
-  user.email = req.body.email;
-  user.setPassword(req.body.password);
-
-  user.save(function (err) {
-    var token = user.generateJwt();
-    
-    res.status(200);
-    res.json({ "token" : token });
-  });
+  _createUser(userData)
+    .then(function (user) {
+      var token = user.generateJwt();
+      
+      res.status(200);
+      res.json({ token: token });
+    })
+    .catch(function (err) {
+      res.status(500);
+      res.json({ message: 'Error registering new user' });
+    });
 };
 
 /**
@@ -43,7 +47,36 @@ module.exports.login = function (req, res) {
       res.json({ "token" : token });
     } else {
       // If user is not found
-      res.status(401).json(info);
+      res.status(400).json(info);
     }
   })(req, res);
 };
+
+/**
+**
+**/
+function _createUser(userData) {
+  var promise = new Promise(function (resolve, reject) {
+    var user = new User();
+
+    //User.findOne({ email: 'danirhoads@gmail.com' }, function (err, dani) {
+      //if (err) reject(err);
+
+      user.name = userData.name;
+      user.screenname = userData.name;
+      user.email = userData.email;
+      user.setPassword(userData.password);
+      //user.following.push(dani);
+      
+      user.save(function (err) {
+        if (err) reject(err);
+
+        resolve(user);
+      });
+      
+    //});
+      
+  });
+
+  return promise;
+}
