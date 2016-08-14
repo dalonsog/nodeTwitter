@@ -1,8 +1,10 @@
 'use strict';
 
+var path = require('path');
 var passport = require('passport');
 var mongoose = require('mongoose');
 var User = require('../models/user');
+var jwt = require('jsonwebtoken');
 
 /**
 **
@@ -32,17 +34,16 @@ module.exports.register = function (req, res) {
 **/
 module.exports.login = function (req, res) {
   passport.authenticate('local', function (err, user, info) {
-    var token;
-
     // If Passport throws/catches an error
     if (err) {
-      res.status(404).json(err);
+      res.status(500).json(err);
       return;
     }
 
     // If a user is found
     if (user) {
-      token = user.generateJwt();
+      var token = user.generateJwt();
+      
       res.status(200);
       res.json({ "token" : token });
     } else {
@@ -50,6 +51,34 @@ module.exports.login = function (req, res) {
       res.status(400).json(info);
     }
   })(req, res);
+};
+
+/**
+**
+**/
+module.exports.verifyUser = function (req, res, next) {
+  // check header or url parameters or post parameters for token
+  var token = req.headers['x-access-token'];
+
+  // decodes token
+  if (token)
+    // verifies secret and checks exp date
+    _verifyToken(token)
+      .then(function (decoded) {
+        // if everything is good, save to request for use in other routes
+        req.decoded = decoded;
+        next();
+      })
+      .catch(function (err) {
+        // if the token is wrong, redirects to login page
+        res.status(403);
+        res.sendFile(path.join(__dirname, '../../public/views/login.html'));
+      });
+  else {
+    // if no token is provided, redirects to login page
+    res.status(403);
+    res.sendFile(path.join(__dirname, '../../public/views/login.html'));
+  }
 };
 
 /**
@@ -76,6 +105,21 @@ function _createUser(userData) {
       
     //});
       
+  });
+
+  return promise;
+}
+
+/**
+**
+**/
+function _verifyToken(token) {
+  var promise = new Promise(function (resolve, reject) {
+    jwt.verify(token, 'MY_SECRET', function (err, decoded) {
+      if (err) reject(err);
+      
+      resolve(decoded);
+    });
   });
 
   return promise;

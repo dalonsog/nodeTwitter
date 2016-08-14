@@ -37,7 +37,7 @@ app.use(function (err, req, res, next) {
 });
 
 // Static
-app.use('/', express.static('./public/views'));
+//app.use('/', express.static('./public/views'));
 app.use('/js', express.static('./public/js'));
 app.use('/css', express.static('./public/css'));
 

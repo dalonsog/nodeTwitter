@@ -11,6 +11,9 @@ var auth = jwt({
 });
 
 router.get('/', auth, userController.getTweets);
-router.get('/tweets', auth, userController.getFollowingTweets);
+router.get('/tweets', auth, userController.getTimeline);
+
+router.post('/:userId/follow', auth, userController.followUser);
+router.delete('/:userId/follow', auth, userController.unfollowUser);
 
 module.exports = router;
