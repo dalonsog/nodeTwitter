@@ -2,8 +2,12 @@
   var xhttp = new XMLHttpRequest();
 
   xhttp.onreadystatechange = function() {
-    if (xhttp.readyState == 4 && xhttp.status == 200)
-      console.log(JSON.parse(xhttp.response).token);
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+      var token = JSON.parse(xhttp.response).token;
+      xhttp.open('GET', '/', false);
+      xhttp.setRequestHeader('x-access-token', token);
+      xhttp.send();
+    }
   };
 
   if (document.getElementById('login-button'))

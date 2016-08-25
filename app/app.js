@@ -40,6 +40,7 @@ app.use(function (err, req, res, next) {
 //app.use('/', express.static('./public/views'));
 app.use('/js', express.static('./public/js'));
 app.use('/css', express.static('./public/css'));
+app.use('/images', express.static('./public/images'));
 
 // Routes
 app.use('/', router);

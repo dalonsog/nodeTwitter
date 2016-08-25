@@ -19,9 +19,10 @@ module.exports.register = function (req, res) {
   _createUser(userData)
     .then(function (user) {
       var token = user.generateJwt();
+
+      res.cookie('authToken', token, { maxAge: 60 * 1000 });
       
-      res.status(200);
-      res.json({ token: token });
+      res.redirect('/');
     })
     .catch(function (err) {
       res.status(500);
@@ -43,9 +44,10 @@ module.exports.login = function (req, res) {
     // If a user is found
     if (user) {
       var token = user.generateJwt();
+
+      res.cookie('authToken', token, { maxAge: 60 * 1000 });
       
-      res.status(200);
-      res.json({ "token" : token });
+      res.redirect('/');
     } else {
       // If user is not found
       res.status(400).json(info);
@@ -56,9 +58,20 @@ module.exports.login = function (req, res) {
 /**
 **
 **/
+module.exports.logout = function (req, res) {
+  if (req.cookies.authToken) res.clearCookie('authToken');
+
+  res.redirect('/login');
+};
+
+/**
+**
+**/
 module.exports.verifyUser = function (req, res, next) {
   // check header or url parameters or post parameters for token
-  var token = req.headers['x-access-token'];
+  var token = req.headers['x-access-token'] || req.cookies.authToken;
+
+  console.log("Token: " + token);
 
   // decodes token
   if (token)
@@ -72,12 +85,12 @@ module.exports.verifyUser = function (req, res, next) {
       .catch(function (err) {
         // if the token is wrong, redirects to login page
         res.status(403);
-        res.sendFile(path.join(__dirname, '../../public/views/login.html'));
+        res.redirect('/login');
       });
   else {
     // if no token is provided, redirects to login page
     res.status(403);
-    res.sendFile(path.join(__dirname, '../../public/views/login.html'));
+    res.redirect('/login');
   }
 };
 

@@ -32,6 +32,9 @@ router.get('/login', function (req, res, next) {
 });
 router.post('/login', authController.login);
 
+// Login routes
+router.get('/logout', authController.logout);
+
 // Ping route for testing
 router.post('/ping', function (req, res, next) {
   res.status(200).json(req.body);

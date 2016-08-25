@@ -33,7 +33,7 @@ describe('User', function () {
         email: EMAIL
       });
 
-      assert.equal(user.name, NAME);
+      assert.equal(user.email, EMAIL);
     });
   });
 
