@@ -6,6 +6,8 @@ var mongoose = require('mongoose');
 var User = require('../models/user');
 var jwt = require('jsonwebtoken');
 
+const COOKIE_MAX_AGE = 30 * 60 * 1000;
+
 /**
 **
 **/
@@ -45,7 +47,7 @@ module.exports.login = function (req, res) {
     if (user) {
       var token = user.generateJwt();
 
-      res.cookie('authToken', token, { maxAge: 60 * 1000 });
+      res.cookie('authToken', token, { maxAge: COOKIE_MAX_AGE });
       
       res.redirect('/');
     } else {
