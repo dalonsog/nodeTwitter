@@ -4,127 +4,412 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>nodeTwitter</title>    
+        <title>nodeTwitter</title>
         <link rel="stylesheet" href="css/main.css"/>
+        <script src="https://use.fontawesome.com/a651d7fffb.js"></script>
     </head>
     <body>
         <div class="navbar">
-            <div class="button active">H</div>
-            <div class="button">N</div>
-            <div class="button">M</div>
-            <img src="/images/icon.png" class="logo"/>
+            <div class="navbar-content">
+                <div class="button active">H</div>
+                <div class="button">N</div>
+                <div class="button">M</div>
+                <img src="/images/icon.png" class="logo"/>
+            </div>
         </div>
         <div class="container">
             <div class="main-content">
                 <div class="sidebar">
-                    <div>asdf</div>
-                    <div>asdf</div>
-                    <div>asdf</div>
-                    <div>asdf</div>
-                    <div>asdf</div>
-                    <div>asdf</div>
-                    <div>asdf</div>
-                    <div>asdf</div>
-                    <div>asdf</div>
+                    <div class="sidebar-user">
+                        <div class="sidebar-avatar">
+                            <img src="/images/avatar.jpg">
+                        </div>
+                        <div class="sidebar-user-info">
+                            <div class="sidebar-user-name">Daniel Alonso</div>
+                            <div class="sidebar-user-screenname">@danirhoads</div>
+                        </div>
+                        <div style="clear: both;"></div>
+                        <div class="sidebar-user-extra">
+                            <div class="sidebar-extra-container">
+                                <div class="sidebar-extra-header">TWEETS</div>
+                                <div class="sidebar-extra-content">37.5 K</div>
+                            </div>
+                            <div class="sidebar-extra-container">
+                                <div class="sidebar-extra-header">FOLLOWING</div>
+                                <div class="sidebar-extra-content">157</div>
+                            </div>
+                            <div class="sidebar-extra-container">
+                                <div class="sidebar-extra-header">FOLLOWERS</div>
+                                <div class="sidebar-extra-content">25.698</div>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="tweets-container">
                     <div class="tweet">
                         <div class="tweet-header">
-                            <div class="tweet-avatar">
-                                <img src="/images/avatar.jpg">
-                            </div>
-                            <div class="tweet-name">Dani</div>
-                            <div class="tweet-screenname">@danirhoads</div>
+                            <a class="tweet-user-link">
+                                <div class="tweet-avatar">
+                                    <img src="/images/avatar.jpg">
+                                </div>
+                                <div class="tweet-name">Dani</div>
+                                <div class="tweet-screenname">@danirhoads</div>
+                            </a>
                             <div class="tweet-time">- 20 min</div>
                         </div>
                         <div class="tweet-content">
                             <div class="tweet-text">Tweet de prueba para ver cómo queda el diseño. Escribo tonterías para completar los ciento cuarenta caracteres de límite máximo del texto.</div>
                         </div>
-                        <div class="tweet-footer">RT FAV</div>
+                        <div class="tweet-footer">
+                            <div class="tweet-extra-container retweet">
+                                <i class="tweet-extra-icon fa fa-retweet"></i>
+                                <div class="tweet-extra-content">56</div>
+                            </div>
+                            <div class="tweet-extra-container fav">
+                                <i class="tweet-extra-icon fa fa-heart"></i>
+                                <div class="tweet-extra-content">28</div>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
                     </div>
                     <div class="tweet">
                         <div class="tweet-header">
-                            <div class="tweet-avatar">
-                                <img src="/images/avatar.jpg">
-                            </div>
-                            <div class="tweet-name">Dani</div>
-                            <div class="tweet-screenname">@danirhoads</div>
+                            <a class="tweet-user-link">
+                                <div class="tweet-avatar">
+                                    <img src="/images/avatar.jpg">
+                                </div>
+                                <div class="tweet-name">Dani</div>
+                                <div class="tweet-screenname">@danirhoads</div>
+                            </a>
                             <div class="tweet-time">- 20 min</div>
                         </div>
                         <div class="tweet-content">
                             <div class="tweet-text">Tweet de prueba para ver cómo queda el diseño. Escribo tonterías para completar los ciento cuarenta caracteres de límite máximo del texto.</div>
                         </div>
-                        <div class="tweet-footer">RT FAV</div>
+                        <div class="tweet-footer">
+                            <div class="tweet-extra-container retweet">
+                                <i class="tweet-extra-icon fa fa-retweet"></i>
+                                <div class="tweet-extra-content">56</div>
+                            </div>
+                            <div class="tweet-extra-container fav">
+                                <i class="tweet-extra-icon fa fa-heart"></i>
+                                <div class="tweet-extra-content">28</div>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
                     </div>
                     <div class="tweet">
                         <div class="tweet-header">
-                            <div class="tweet-avatar">
-                                <img src="/images/avatar.jpg">
-                            </div>
-                            <div class="tweet-name">Dani</div>
-                            <div class="tweet-screenname">@danirhoads</div>
+                            <a class="tweet-user-link">
+                                <div class="tweet-avatar">
+                                    <img src="/images/avatar.jpg">
+                                </div>
+                                <div class="tweet-name">Dani</div>
+                                <div class="tweet-screenname">@danirhoads</div>
+                            </a>
                             <div class="tweet-time">- 20 min</div>
                         </div>
                         <div class="tweet-content">
                             <div class="tweet-text">Tweet de prueba para ver cómo queda el diseño. Escribo tonterías para completar los ciento cuarenta caracteres de límite máximo del texto.</div>
                         </div>
-                        <div class="tweet-footer">RT FAV</div>
+                        <div class="tweet-footer">
+                            <div class="tweet-extra-container retweet">
+                                <i class="tweet-extra-icon fa fa-retweet"></i>
+                                <div class="tweet-extra-content">56</div>
+                            </div>
+                            <div class="tweet-extra-container fav">
+                                <i class="tweet-extra-icon fa fa-heart"></i>
+                                <div class="tweet-extra-content">28</div>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
                     </div>
                     <div class="tweet">
                         <div class="tweet-header">
-                            <div class="tweet-avatar">
-                                <img src="/images/avatar.jpg">
-                            </div>
-                            <div class="tweet-name">Dani</div>
-                            <div class="tweet-screenname">@danirhoads</div>
+                            <a class="tweet-user-link">
+                                <div class="tweet-avatar">
+                                    <img src="/images/avatar.jpg">
+                                </div>
+                                <div class="tweet-name">Dani</div>
+                                <div class="tweet-screenname">@danirhoads</div>
+                            </a>
                             <div class="tweet-time">- 20 min</div>
                         </div>
                         <div class="tweet-content">
                             <div class="tweet-text">Tweet de prueba para ver cómo queda el diseño. Escribo tonterías para completar los ciento cuarenta caracteres de límite máximo del texto.</div>
                         </div>
-                        <div class="tweet-footer">RT FAV</div>
+                        <div class="tweet-footer">
+                            <div class="tweet-extra-container retweet">
+                                <i class="tweet-extra-icon fa fa-retweet"></i>
+                                <div class="tweet-extra-content">56</div>
+                            </div>
+                            <div class="tweet-extra-container fav">
+                                <i class="tweet-extra-icon fa fa-heart"></i>
+                                <div class="tweet-extra-content">28</div>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
                     </div>
                     <div class="tweet">
                         <div class="tweet-header">
-                            <div class="tweet-avatar">
-                                <img src="/images/avatar.jpg">
-                            </div>
-                            <div class="tweet-name">Dani</div>
-                            <div class="tweet-screenname">@danirhoads</div>
+                            <a class="tweet-user-link">
+                                <div class="tweet-avatar">
+                                    <img src="/images/avatar.jpg">
+                                </div>
+                                <div class="tweet-name">Dani</div>
+                                <div class="tweet-screenname">@danirhoads</div>
+                            </a>
                             <div class="tweet-time">- 20 min</div>
                         </div>
                         <div class="tweet-content">
                             <div class="tweet-text">Tweet de prueba para ver cómo queda el diseño. Escribo tonterías para completar los ciento cuarenta caracteres de límite máximo del texto.</div>
                         </div>
-                        <div class="tweet-footer">RT FAV</div>
+                        <div class="tweet-footer">
+                            <div class="tweet-extra-container retweet">
+                                <i class="tweet-extra-icon fa fa-retweet"></i>
+                                <div class="tweet-extra-content">56</div>
+                            </div>
+                            <div class="tweet-extra-container fav">
+                                <i class="tweet-extra-icon fa fa-heart"></i>
+                                <div class="tweet-extra-content">28</div>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
                     </div>
                     <div class="tweet">
                         <div class="tweet-header">
-                            <div class="tweet-avatar">
-                                <img src="/images/avatar.jpg">
-                            </div>
-                            <div class="tweet-name">Dani</div>
-                            <div class="tweet-screenname">@danirhoads</div>
+                            <a class="tweet-user-link">
+                                <div class="tweet-avatar">
+                                    <img src="/images/avatar.jpg">
+                                </div>
+                                <div class="tweet-name">Dani</div>
+                                <div class="tweet-screenname">@danirhoads</div>
+                            </a>
                             <div class="tweet-time">- 20 min</div>
                         </div>
                         <div class="tweet-content">
                             <div class="tweet-text">Tweet de prueba para ver cómo queda el diseño. Escribo tonterías para completar los ciento cuarenta caracteres de límite máximo del texto.</div>
                         </div>
-                        <div class="tweet-footer">RT FAV</div>
+                        <div class="tweet-footer">
+                            <div class="tweet-extra-container retweet">
+                                <i class="tweet-extra-icon fa fa-retweet"></i>
+                                <div class="tweet-extra-content">56</div>
+                            </div>
+                            <div class="tweet-extra-container fav">
+                                <i class="tweet-extra-icon fa fa-heart"></i>
+                                <div class="tweet-extra-content">28</div>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
                     </div>
                     <div class="tweet">
                         <div class="tweet-header">
-                            <div class="tweet-avatar">
-                                <img src="/images/avatar.jpg">
-                            </div>
-                            <div class="tweet-name">Dani</div>
-                            <div class="tweet-screenname">@danirhoads</div>
+                            <a class="tweet-user-link">
+                                <div class="tweet-avatar">
+                                    <img src="/images/avatar.jpg">
+                                </div>
+                                <div class="tweet-name">Dani</div>
+                                <div class="tweet-screenname">@danirhoads</div>
+                            </a>
                             <div class="tweet-time">- 20 min</div>
                         </div>
                         <div class="tweet-content">
                             <div class="tweet-text">Tweet de prueba para ver cómo queda el diseño. Escribo tonterías para completar los ciento cuarenta caracteres de límite máximo del texto.</div>
                         </div>
-                        <div class="tweet-footer">RT FAV</div>
+                        <div class="tweet-footer">
+                            <div class="tweet-extra-container retweet">
+                                <i class="tweet-extra-icon fa fa-retweet"></i>
+                                <div class="tweet-extra-content">56</div>
+                            </div>
+                            <div class="tweet-extra-container fav">
+                                <i class="tweet-extra-icon fa fa-heart"></i>
+                                <div class="tweet-extra-content">28</div>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
+                    </div>
+                    <div class="tweet">
+                        <div class="tweet-header">
+                            <a class="tweet-user-link">
+                                <div class="tweet-avatar">
+                                    <img src="/images/avatar.jpg">
+                                </div>
+                                <div class="tweet-name">Dani</div>
+                                <div class="tweet-screenname">@danirhoads</div>
+                            </a>
+                            <div class="tweet-time">- 20 min</div>
+                        </div>
+                        <div class="tweet-content">
+                            <div class="tweet-text">Tweet de prueba para ver cómo queda el diseño. Escribo tonterías para completar los ciento cuarenta caracteres de límite máximo del texto.</div>
+                        </div>
+                        <div class="tweet-footer">
+                            <div class="tweet-extra-container retweet">
+                                <i class="tweet-extra-icon fa fa-retweet"></i>
+                                <div class="tweet-extra-content">56</div>
+                            </div>
+                            <div class="tweet-extra-container fav">
+                                <i class="tweet-extra-icon fa fa-heart"></i>
+                                <div class="tweet-extra-content">28</div>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
+                    </div>
+                    <div class="tweet">
+                        <div class="tweet-header">
+                            <a class="tweet-user-link">
+                                <div class="tweet-avatar">
+                                    <img src="/images/avatar.jpg">
+                                </div>
+                                <div class="tweet-name">Dani</div>
+                                <div class="tweet-screenname">@danirhoads</div>
+                            </a>
+                            <div class="tweet-time">- 20 min</div>
+                        </div>
+                        <div class="tweet-content">
+                            <div class="tweet-text">Tweet de prueba para ver cómo queda el diseño. Escribo tonterías para completar los ciento cuarenta caracteres de límite máximo del texto.</div>
+                        </div>
+                        <div class="tweet-footer">
+                            <div class="tweet-extra-container retweet">
+                                <i class="tweet-extra-icon fa fa-retweet"></i>
+                                <div class="tweet-extra-content">56</div>
+                            </div>
+                            <div class="tweet-extra-container fav">
+                                <i class="tweet-extra-icon fa fa-heart"></i>
+                                <div class="tweet-extra-content">28</div>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
+                    </div>
+                    <div class="tweet">
+                        <div class="tweet-header">
+                            <a class="tweet-user-link">
+                                <div class="tweet-avatar">
+                                    <img src="/images/avatar.jpg">
+                                </div>
+                                <div class="tweet-name">Dani</div>
+                                <div class="tweet-screenname">@danirhoads</div>
+                            </a>
+                            <div class="tweet-time">- 20 min</div>
+                        </div>
+                        <div class="tweet-content">
+                            <div class="tweet-text">Tweet de prueba para ver cómo queda el diseño. Escribo tonterías para completar los ciento cuarenta caracteres de límite máximo del texto.</div>
+                        </div>
+                        <div class="tweet-footer">
+                            <div class="tweet-extra-container retweet">
+                                <i class="tweet-extra-icon fa fa-retweet"></i>
+                                <div class="tweet-extra-content">56</div>
+                            </div>
+                            <div class="tweet-extra-container fav">
+                                <i class="tweet-extra-icon fa fa-heart"></i>
+                                <div class="tweet-extra-content">28</div>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
+                    </div>
+                    <div class="tweet">
+                        <div class="tweet-header">
+                            <a class="tweet-user-link">
+                                <div class="tweet-avatar">
+                                    <img src="/images/avatar.jpg">
+                                </div>
+                                <div class="tweet-name">Dani</div>
+                                <div class="tweet-screenname">@danirhoads</div>
+                            </a>
+                            <div class="tweet-time">- 20 min</div>
+                        </div>
+                        <div class="tweet-content">
+                            <div class="tweet-text">Tweet de prueba para ver cómo queda el diseño. Escribo tonterías para completar los ciento cuarenta caracteres de límite máximo del texto.</div>
+                        </div>
+                        <div class="tweet-footer">
+                            <div class="tweet-extra-container retweet">
+                                <i class="tweet-extra-icon fa fa-retweet"></i>
+                                <div class="tweet-extra-content">56</div>
+                            </div>
+                            <div class="tweet-extra-container fav">
+                                <i class="tweet-extra-icon fa fa-heart"></i>
+                                <div class="tweet-extra-content">28</div>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
+                    </div>
+                    <div class="tweet">
+                        <div class="tweet-header">
+                            <a class="tweet-user-link">
+                                <div class="tweet-avatar">
+                                    <img src="/images/avatar.jpg">
+                                </div>
+                                <div class="tweet-name">Dani</div>
+                                <div class="tweet-screenname">@danirhoads</div>
+                            </a>
+                            <div class="tweet-time">- 20 min</div>
+                        </div>
+                        <div class="tweet-content">
+                            <div class="tweet-text">Tweet de prueba para ver cómo queda el diseño. Escribo tonterías para completar los ciento cuarenta caracteres de límite máximo del texto.</div>
+                        </div>
+                        <div class="tweet-footer">
+                            <div class="tweet-extra-container retweet">
+                                <i class="tweet-extra-icon fa fa-retweet"></i>
+                                <div class="tweet-extra-content">56</div>
+                            </div>
+                            <div class="tweet-extra-container fav">
+                                <i class="tweet-extra-icon fa fa-heart"></i>
+                                <div class="tweet-extra-content">28</div>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
+                    </div>
+                    <div class="tweet">
+                        <div class="tweet-header">
+                            <a class="tweet-user-link">
+                                <div class="tweet-avatar">
+                                    <img src="/images/avatar.jpg">
+                                </div>
+                                <div class="tweet-name">Dani</div>
+                                <div class="tweet-screenname">@danirhoads</div>
+                            </a>
+                            <div class="tweet-time">- 20 min</div>
+                        </div>
+                        <div class="tweet-content">
+                            <div class="tweet-text">Tweet de prueba para ver cómo queda el diseño. Escribo tonterías para completar los ciento cuarenta caracteres de límite máximo del texto.</div>
+                        </div>
+                        <div class="tweet-footer">
+                            <div class="tweet-extra-container retweet">
+                                <i class="tweet-extra-icon fa fa-retweet"></i>
+                                <div class="tweet-extra-content">56</div>
+                            </div>
+                            <div class="tweet-extra-container fav">
+                                <i class="tweet-extra-icon fa fa-heart"></i>
+                                <div class="tweet-extra-content">28</div>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
+                    </div>
+                    <div class="tweet">
+                        <div class="tweet-header">
+                            <a class="tweet-user-link">
+                                <div class="tweet-avatar">
+                                    <img src="/images/avatar.jpg">
+                                </div>
+                                <div class="tweet-name">Dani</div>
+                                <div class="tweet-screenname">@danirhoads</div>
+                            </a>
+                            <div class="tweet-time">- 20 min</div>
+                        </div>
+                        <div class="tweet-content">
+                            <div class="tweet-text">Tweet de prueba para ver cómo queda el diseño. Escribo tonterías para completar los ciento cuarenta caracteres de límite máximo del texto.</div>
+                        </div>
+                        <div class="tweet-footer">
+                            <div class="tweet-extra-container retweet">
+                                <i class="tweet-extra-icon fa fa-retweet"></i>
+                                <div class="tweet-extra-content">56</div>
+                            </div>
+                            <div class="tweet-extra-container fav">
+                                <i class="tweet-extra-icon fa fa-heart"></i>
+                                <div class="tweet-extra-content">28</div>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
                     </div>
                 </div>
                 <div style="clear: both;"></div>
