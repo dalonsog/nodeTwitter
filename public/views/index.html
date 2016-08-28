@@ -11,9 +11,18 @@
     <body>
         <div class="navbar">
             <div class="navbar-content">
-                <div class="button active">H</div>
-                <div class="button">N</div>
-                <div class="button">M</div>
+                <div class="button active">
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                    <div class="button-label">Home</div>
+                </div>
+                <div class="button">
+                    <i class="fa fa-bell" aria-hidden="true"></i>
+                    <div class="button-label">Notifications</div>
+                </div>
+                <div class="button">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <div class="button-label">Messages</div>
+                </div>
                 <img src="/images/icon.png" class="logo"/>
             </div>
         </div>
@@ -47,6 +56,25 @@
                     </div>
                 </div>
                 <div class="tweets-container">
+                    <div class="new-tweet">
+                        <div class="tweet-header">
+                            <div class="tweet-user-link">
+                                <div class="tweet-avatar">
+                                    <img src="/images/avatar.jpg">
+                                </div>
+                                <div class="tweet-name">Dani</div>
+                                <div class="tweet-screenname">@danirhoads</div>
+                            </div>
+                        </div>
+                        <div class="tweet-content">
+                            <div contenteditable="true" class="new-tweet-text"></div>
+                        </div>
+                        <div class="tweet-footer">
+                            <div class="tweet-chars-number">8</div>
+                            <div class="tweet-button">Tweet</div>
+                            <div style="clear: both;"></div>
+                        </div>
+                    </div>
                     <div class="tweet">
                         <div class="tweet-header">
                             <a class="tweet-user-link">

@@ -68,14 +68,25 @@ body {
 
 .button {
     float: left;
-    padding: 5px;
-    width: 40px;
-    height: 40px;
+    padding: 10px 20px;
+    width: 70px;
+    height: 50px;
     text-align: center;
-    line-height: 40px;
+    font-size: 20px;
     color: white;
     transition: background-color 0.3s;
     cursor: pointer;
+    box-sizing: border-box;
+    line-height: 30px;
+}
+
+.button i {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.button:first-child{
+    font-size: 24px;
 }
 
 .button.active {
@@ -84,6 +95,13 @@ body {
 
 .button:not(.active):hover {
     background-color: #1D4EA2;
+}
+
+.button-label {
+    display: none;
+    font-size: 14px;
+    line-height: 24px;
+    margin-left: 5px;
 }
 
 /**********
@@ -175,18 +193,26 @@ body {
     box-sizing: border-box;
 }
 
+.new-tweet {
+    padding: 20px;
+    padding-left: 80px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-bottom: 1px dashed rgba(133, 164, 217, 0.8);
+}
+
 .tweet {
     padding: 20px;
     padding-left: 80px;
     background-color: white;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid rgba(133, 164, 217, 0.1);/*#85A4D9;*/
 }
 
 .tweet:hover {
     background-color: #f9f9f9;
 }
 
-.tweet-header {
+.new-tweet .tweet-header {
+    opacity: 0.7
 }
 
 .tweet-content {
@@ -273,6 +299,31 @@ body {
     margin-left: 10px;
 }
 
+.new-tweet-text {
+    width: 100%;
+    min-height: 40px;
+    border: 1px dashed #85A4D9;
+    word-wrap: break-word;
+}
+
+.tweet-chars-number {
+    float: left;
+}
+
+.tweet-button {
+    float: right;
+    padding: 8px 20px;
+    background-color: #85A4D9;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tweet-button:hover {
+    background-color: #5980C2;
+}
+
 /*********/
 
 @media (min-width: 768px) {
@@ -306,6 +357,13 @@ body {
 }
 
 @media (min-width: 992px) {
+    .button-label {
+        display: inline-block;
+    }
+
+    .button {
+        width: auto;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -316,6 +374,7 @@ body {
     .navbar-content {
         width: 1160px;
     }
+
 }
 
 
