@@ -1,0 +1,381 @@
+/*****************
+* COLOR PALETTE 
+*
+* HEX
+*
+* Base: #3A65AD;
+* Light: #5980C2;
+* Lighter: #85A4D9;
+* Dark: #1D4EA2;
+* Darker: #10397E;
+*
+* Fav: #FF6767;
+* Retweet: #0E9A87;
+*
+* Background: #E4E9F2;
+*
+* RGB
+*
+* Base: rgb(58, 101, 173);
+* Light: rgb(89, 128, 194);
+* Lighter: rgb(133, 164, 217);
+* Dark: rgb(29, 78, 162);
+* Darker: rgb(16, 57, 126);
+*
+*******************/
+
+
+body {
+    background-color: #E4E9F2;
+    font-family: sans-serif;
+    color: #555;
+    font-size: 16px;
+    margin: 0px;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.sidebar,
+.tweets-container {
+    float: left;
+}
+
+/*********
+* Navbar *
+**********/
+.navbar {
+    height: 50px;
+    width: 100%;
+    top: 0px;
+    background-color: #3a64ad;
+    position: fixed;
+    z-index: 999;
+}
+
+.navbar-content {
+
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    position: absolute;
+    left: calc(50% - 25px);
+}
+
+.button {
+    float: left;
+    padding: 10px 20px;
+    width: 70px;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    box-sizing: border-box;
+    line-height: 30px;
+}
+
+.button i {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.button:first-child{
+    font-size: 24px;
+}
+
+.button.active {
+    background-color: #10397E;
+}
+
+.button:not(.active):hover {
+    background-color: #1D4EA2;
+}
+
+.button-label {
+    display: none;
+    font-size: 14px;
+    line-height: 24px;
+    margin-left: 5px;
+}
+
+/**********
+* Sidebar *
+***********/
+.sidebar {
+    border: 1px solid #85A4D9;
+    background-color: white;
+    width: 300px;
+    margin-right: 20px;
+    box-sizing: border-box;
+    display: none;
+    padding: 20px;
+}
+
+.sidebar-user {
+
+}
+
+.sidebar-avatar,
+.sidebar-user-info {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.sidebar-avatar {
+    box-sizing: border-box;
+    /*border: 1px solid #85A4D9;*/
+    width: 80px;
+    height: 80px;
+}
+
+.sidebar-avatar img {
+    width: 100%;
+    height: 100%;
+}
+
+.sidebar-user-info {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.sidebar-user-info:hover .sidebar-user-name {
+    color: #85A4D9;
+    text-decoration: underline;
+}
+
+.sidebar-user-name {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.sidebar-user-screenname {
+    color: #999;
+    font-size: 14px;
+}
+
+.sidebar-user-extra {
+    margin-top: 20px;
+}
+
+.sidebar-extra-container {
+    float: left;
+    width: calc(100% / 3);
+    cursor: pointer;
+}
+
+.sidebar-extra-container:hover .sidebar-extra-header {
+    color: #85A4D9;
+}
+
+.sidebar-extra-header {
+    color: #999;
+    font-size: 10px;
+}
+
+.sidebar-extra-content {
+    color: #85A4D9;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/**********
+* Tweet *
+***********/
+.tweets-container {
+    width: 100%;
+    border: 1px solid #85A4D9;
+    box-sizing: border-box;
+}
+
+.new-tweet {
+    padding: 20px;
+    padding-left: 80px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-bottom: 1px dashed rgba(133, 164, 217, 0.8);
+}
+
+.tweet {
+    padding: 20px;
+    padding-left: 80px;
+    background-color: white;
+    border-bottom: 1px solid rgba(133, 164, 217, 0.1);/*#85A4D9;*/
+}
+
+.tweet:hover {
+    background-color: #f9f9f9;
+}
+
+.new-tweet .tweet-header {
+    opacity: 0.7
+}
+
+.tweet-content {
+}
+
+.tweet-footer {
+    margin-top: 10px;
+}
+
+.tweet-user-link {
+    position: relative;
+    cursor: pointer;
+}
+
+.tweet-user-link:hover .tweet-name {
+    color: #85A4D9;
+    text-decoration: underline;
+}
+
+.tweet-avatar {
+    width: 50px;
+    height: 50px;
+    background-color: blue;
+    position: absolute;
+    left: -60px;
+}
+
+.tweet-avatar img {
+    width: 100%;
+    height: 100%;
+}
+
+.tweet-name,
+.tweet-screenname,
+.tweet-time {
+    display: inline-block;
+    vertical-align: top;
+    line-height: 12px;
+}
+
+.tweet-name {
+    font-weight: bold;
+}
+
+.tweet-screenname,
+.tweet-time {
+    color: #999;
+    font-size: 14px;
+}
+
+.tweet-text {
+    clear: both;
+}
+
+.tweet-extra-container {
+    float: left;
+    cursor: pointer;
+    color: #999;
+    font-weight: bold;
+    width: 50%
+}
+
+.tweet-extra-container.retweet:hover,
+.tweet-extra-container.retweet.active {
+    color: #0E9A87;
+}
+
+.tweet-extra-container.fav:hover,
+.tweet-extra-container.fav.active {
+    color: #FF6767;
+}
+
+.tweet-extra-icon,
+.tweet-extra-content {
+    display: inline-block;
+    font-size: 14px;
+}
+
+.tweet-extra-icon.fa-retweet {
+    font-size: 16px;
+}
+
+.tweet-extra-content {
+    margin-left: 10px;
+}
+
+.new-tweet-text {
+    width: 100%;
+    min-height: 40px;
+    border: 1px dashed #85A4D9;
+    word-wrap: break-word;
+}
+
+.tweet-chars-number {
+    float: left;
+}
+
+.tweet-button {
+    float: right;
+    padding: 8px 20px;
+    background-color: #85A4D9;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tweet-button:hover {
+    background-color: #5980C2;
+}
+
+/*********/
+
+@media (min-width: 768px) {
+    .sidebar {
+        display: block;
+    }
+
+    .main-content {
+        width: 100%;
+        padding: 20px;
+        margin: 0px auto;
+        box-sizing: border-box;
+    }
+
+    .tweets-container {
+        width: calc(100% - 320px);
+    }
+
+    .navbar-content {
+        width: 100%;
+        padding: 0px 20px;
+        margin: 0px auto;
+        box-sizing: border-box;
+    }
+
+    .tweet-extra-container {
+        width: auto;
+        margin-right: 50px;
+    }
+
+}
+
+@media (min-width: 992px) {
+    .button-label {
+        display: inline-block;
+    }
+
+    .button {
+        width: auto;
+    }
+}
+
+@media (min-width: 1200px) {
+    .main-content {
+        width: 1160px;
+    }
+
+    .navbar-content {
+        width: 1160px;
+    }
+
+}
+
+
+

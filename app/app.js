@@ -12,6 +12,8 @@ require('./config/passport');
 
 // Import routes
 var router = require('./routes/index');
+var tweetRouter = require('./routes/tweet');
+var userRouter = require('./routes/user');
 
 // Express app instance
 var app = express();
@@ -35,10 +37,14 @@ app.use(function (err, req, res, next) {
 });
 
 // Static
-app.use('/', express.static('./public/views'));
+//app.use('/', express.static('./public/views'));
 app.use('/js', express.static('./public/js'));
+app.use('/css', express.static('./public/css'));
+app.use('/images', express.static('./public/images'));
 
 // Routes
 app.use('/', router);
+app.use('/tweets', tweetRouter);
+app.use('/users', userRouter);
 
 module.exports = app;
