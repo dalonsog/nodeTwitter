@@ -59,9 +59,9 @@ body {
 }
 
 .logo {
-    width: 40px;
-    height: 40px;
-    padding: 5px;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
     position: absolute;
     left: calc(50% - 25px);
 }
