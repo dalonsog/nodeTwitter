@@ -39,7 +39,7 @@ app.use(function (err, req, res, next) {
 });
 
 // Static
-//app.use('/', express.static('./public/views'));
+app.use('/libs', express.static('./public/libs'));
 app.use('/js', express.static('./public/js'));
 app.use('/css', express.static('./public/css'));
 app.use('/images', express.static('./public/images'));
