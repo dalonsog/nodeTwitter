@@ -1,6 +1,7 @@
 'use strict';
 
 var express = require('express');
+var favicon = require('serve-favicon');
 var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
@@ -26,6 +27,7 @@ app.use(passport.initialize());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(favicon('./public/images/favicon.ico'));
 
 // error handlers
 // Catch unauthorised errors
