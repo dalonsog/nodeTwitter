@@ -29,17 +29,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(favicon('./public/images/favicon.ico'));
 
-// error handlers
-// Catch unauthorised errors
-app.use(function (err, req, res, next) {
-  if (err.name === 'UnauthorizedError') {
-    res.status(401);
-    res.json({"message" : err.name + ": " + err.message});
-  }
-});
-
 // Static
-//app.use('/', express.static('./public/views'));
+app.use('/views', express.static('./public/views'));
+app.use('/libs', express.static('./public/libs'));
 app.use('/js', express.static('./public/js'));
 app.use('/css', express.static('./public/css'));
 app.use('/images', express.static('./public/images'));

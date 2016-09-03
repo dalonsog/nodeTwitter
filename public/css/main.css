@@ -304,6 +304,11 @@ body {
     min-height: 40px;
     border: 1px dashed #85A4D9;
     word-wrap: break-word;
+    resize: none;
+    font-family: inherit;
+    padding: 10px;
+    line-height: 20px;
+    box-sizing: border-box;
 }
 
 .tweet-chars-number {

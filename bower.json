@@ -1,0 +1,10 @@
+{
+  "name": "nodeTwitter",
+  "version": "1.0.0",
+  "dependencies": {
+    "font-awesome": "latest",
+    "angular": "~1.5.8",
+    "angular-ui-router": "~0.2.15",
+    "angular-resource": "~1.4.8"
+  }
+}
