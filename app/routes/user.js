@@ -3,17 +3,12 @@
 var express = require('express');
 var userController = require('../controllers/user');
 var router = express.Router();
-var jwt = require('express-jwt');
+var authController = require('../controllers/authentication');
 
-var auth = jwt({
-  secret: 'MY_SECRET',
-  userProperty: 'payload'
-});
+router.get('/', authController.verifyUser, userController.getTweets);
+router.get('/tweets', authController.verifyUser, userController.getTimeline);
 
-router.get('/', auth, userController.getTweets);
-router.get('/tweets', auth, userController.getTimeline);
-
-router.post('/:userId/follow', auth, userController.followUser);
-router.delete('/:userId/follow', auth, userController.unfollowUser);
+router.post('/:userId/follow', authController.verifyUser, userController.followUser);
+router.delete('/:userId/follow', authController.verifyUser, userController.unfollowUser);
 
 module.exports = router;

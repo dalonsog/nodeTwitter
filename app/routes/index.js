@@ -3,14 +3,8 @@
 var express = require('express');
 var path = require('path');
 var router = express.Router();
-var jwt = require('express-jwt');
 var profileController = require('../controllers/profile');
 var authController = require('../controllers/authentication');
-
-var auth = jwt({
-  secret: 'MY_SECRET',
-  userProperty: 'payload'
-});
 
 // Index route
 router.get('/', authController.verifyUser, function (req, res, next) {
@@ -18,7 +12,7 @@ router.get('/', authController.verifyUser, function (req, res, next) {
 });
 
 // Profile route
-router.get('/profile', auth, profileController.profileRead);
+router.get('/profile', authController.verifyUser, profileController.profileRead);
 
 // Registration routes
 router.get('/register', function (req, res, next) {

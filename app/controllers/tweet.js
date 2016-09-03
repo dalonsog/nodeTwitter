@@ -6,14 +6,14 @@ var Tweet = require('../models/tweet');
 
 module.exports.tweet = function (req, res) {
   // If no user ID exists in the JWT return a 401
-  if (!req.payload._id) {
+  if (!req.decoded._id) {
     res.status(401).json({
       "message" : "UnauthorizedError: private profile"
     });
   } else {
     // Otherwise continue
     User
-      .findById(req.payload._id, function (err, user) {
+      .findById(req.decoded._id, function (err, user) {
         if (err) {
           throw err;
           res.status(500);

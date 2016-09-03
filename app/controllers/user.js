@@ -6,17 +6,18 @@ var Tweet = require('../models/tweet');
 
 module.exports.getTweets = function (req, res) {
   // If no user ID exists in the JWT return a 401
-  if (!req.payload._id) {
+  if (!req.decoded._id) {
     res.status(401).json({
       "message" : "UnauthorizedError: private profile"
     });
   } else {
     // Otherwise continue
     User
-      .findById(req.payload._id)
+      .findById(req.decoded._id)
       .populate({
         path: 'tweets',
-        select: '_id text createdAt likes retweets'
+        select: '_id text createdAt likes retweets',
+        options: { sort: { 'createdAt': -1 } }
       })
       .exec(function (err, user) {
         if (err) {
@@ -31,19 +32,20 @@ module.exports.getTweets = function (req, res) {
 
 module.exports.getTimeline = function (req, res) {
   // If no user ID exists in the JWT return a 401
-  if (!req.payload._id) {
+  if (!req.decoded._id) {
     res.status(401).json({
       "message" : "UnauthorizedError: private profile"
     });
   } else {
     // Otherwise continue
     User
-      .findById(req.payload._id)
+      .findById(req.decoded._id)
       .populate({
         path: 'following',
         populate: {
           path: 'tweets',
           select: '_id text createdAt likes retweets',
+          options: { sort: { 'createdAt': -1 } }
         }
       })
       .exec(function (err, user) {
@@ -68,13 +70,13 @@ module.exports.getTimeline = function (req, res) {
 **/
 module.exports.followUser = function (req, res) {
   // If no user ID exists in the JWT return a 401
-  if (!req.payload._id) {
+  if (!req.decoded._id) {
     res.status(401).json({
       "message" : "UnauthorizedError: private profile"
     });
   } else {
     // Otherwise continue
-    User.findById(req.payload._id).exec(function (err, originalUser) {
+    User.findById(req.decoded._id).exec(function (err, originalUser) {
       if (err) {
         res.status(500).send(err); 
         return;
@@ -89,7 +91,7 @@ module.exports.followUser = function (req, res) {
         var index = originalUser.following.indexOf(req.params.userId);
         if (index === -1) originalUser.following.push(userToFollow);
         
-        index = userToFollow.followers.indexOf(req.payload._id);
+        index = userToFollow.followers.indexOf(req.decoded._id);
         if (index === -1) userToFollow.followers.push(originalUser);
 
         originalUser.save(function (err) {
@@ -117,13 +119,13 @@ module.exports.followUser = function (req, res) {
 **/
 module.exports.unfollowUser = function (req, res) {
   // If no user ID exists in the JWT return a 401
-  if (!req.payload._id) {
+  if (!req.decoded._id) {
     res.status(401).json({
       "message" : "UnauthorizedError: private profile"
     });
   } else {
     // Otherwise continue
-    User.findById(req.payload._id).exec(function (err, originalUser) {
+    User.findById(req.decoded._id).exec(function (err, originalUser) {
       if (err) {
         res.status(500).send(err); 
         return;
@@ -138,7 +140,7 @@ module.exports.unfollowUser = function (req, res) {
         var index = originalUser.following.indexOf(req.params.userId);
         if (index !== -1) originalUser.following.splice(index, 1);
 
-        index = userToFollow.followers.indexOf(req.payload._id);
+        index = userToFollow.followers.indexOf(req.decoded._id);
         if (index !== -1) userToFollow.followers.splice(index, 1);
 
         originalUser.save(function (err) {
