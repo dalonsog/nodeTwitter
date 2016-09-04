@@ -395,8 +395,9 @@ body {
     background-color: #3A65AD;
     display: inline-block;
     vertical-align: middle;
-    animation: loading 2s infinite;
-    -webkit-animation: loading 2s infinite;
+    width: 5px;
+    animation: loading 1s infinite;
+    -webkit-animation: loading 1s infinite;
 }
 
 .loader:nth-child(2) {
@@ -422,40 +423,36 @@ body {
 
 @keyframes loading {
     0% {
-        opacity: 0;
-        width: 10px;
         height: 10px;
     }
 
-    60% {
-        opacity: 1;
-        width: 20px;
+    30% {
         height: 20px;
     }
 
+    60% {
+        height: 10px;
+    }
+
     100% {
-        opacity: 0;
-        width: 10px;
         height: 10px;
     }
 }
 
 @-webkit-keyframes loading {
     0% {
-        opacity: 0;
-        width: 10px;
         height: 10px;
     }
 
-    60% {
-        opacity: 1;
-        width: 20px;
+    30% {
         height: 20px;
     }
 
+    60% {
+        height: 10px;
+    }
+
     100% {
-        opacity: 0;
-        width: 10px;
         height: 10px;
     }
 }
