@@ -1,0 +1,26 @@
+<div class="tweet">
+    <div class="tweet-header">
+        <a class="tweet-user-link">
+            <div class="tweet-avatar">
+                <img src="/images/avatar.jpg">
+            </div>
+            <div class="tweet-name">Dani</div>
+            <div class="tweet-screenname">@danirhoads</div>
+        </a>
+        <div class="tweet-time">- {{$ctrl.tweet.createdAt}}</div>
+    </div>
+    <div class="tweet-content">
+        <div class="tweet-text">{{$ctrl.tweet.text}}</div>
+    </div>
+    <div class="tweet-footer">
+        <div class="tweet-extra-container retweet">
+            <i class="tweet-extra-icon fa fa-retweet"></i>
+            <div class="tweet-extra-content">{{$ctrl.tweet.retweets.length}}</div>
+        </div>
+        <div class="tweet-extra-container fav">
+            <i class="tweet-extra-icon fa fa-heart"></i>
+            <div class="tweet-extra-content">{{$ctrl.tweet.likes.length}}</div>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+</div>
