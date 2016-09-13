@@ -10,6 +10,8 @@ angular
       $scope.tweetText = '';
 
       $scope.sendTweet = function () {
+        if (!$scope.tweetText.length) return;
+
         var tweet = {}
   
         tweet.text = $scope.tweetText;
@@ -21,9 +23,17 @@ angular
           $scope.tweetText = '';
         });
       };
+
+      $scope.follow = function (user) {
+        console.log(user);
+      };
       
       userAPI.getDetail().success(function (response) {
         $scope.user = response;
+      });
+
+      userAPI.getUsers().success(function (response) {
+        $scope.users = response;
       });
       
       userAPI.getTimeline().success(function (response) {

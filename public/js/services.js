@@ -11,6 +11,10 @@ angular
       userAPI.getDetail = function () {
         return $http.get('/profile');
       };
+
+      userAPI.getUsers = function () {
+        return $http.get('/users');
+      };
   
       userAPI.getTimeline = function () {
         return $http.get('/users/57b03cf99b4b16b4184fb8c6/tweets');
