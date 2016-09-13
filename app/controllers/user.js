@@ -22,7 +22,7 @@ module.exports.getUser = function (req, res) {
   User
     .findById(req.params.userId)
     .exec(function (err, user) {
-      res.status(200).json(user.getBasicDetail());
+      res.status(200).json(user.getBasicDetails());
     });
   };
 

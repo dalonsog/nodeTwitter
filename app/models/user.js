@@ -67,7 +67,7 @@ User.methods.generateJwt = function () {
 /**
 **
 **/
-User.methods.getBasicDetail = function () {
+User.methods.getBasicDetails = function () {
   return {
     name: this.name,
     screenname: '@' + this.screenname,
@@ -76,7 +76,22 @@ User.methods.getBasicDetail = function () {
     followers: this.followers.length,
     following: this.following.length
   };
-}
+};
+
+/**
+**
+**/
+User.methods.getFullDetails = function () {
+  return {
+    name: this.name,
+    screenname: '@' + this.screenname,
+    avatar: this.avatar,
+    tweets: this.tweets,
+    followers: this.followers,
+    following: this.following,
+    likes: this.likes
+  };
+};
 
 /**
 **
@@ -86,7 +101,7 @@ User.methods.getTweets = function () {
           .findOne({ id: this._id })
           .populate('tweets')
           .exec();
-}
+};
 
 // Exposes the Schema as a Mongoose model
 module.exports = mongoose.model('User', User);

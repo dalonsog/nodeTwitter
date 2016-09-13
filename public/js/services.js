@@ -13,7 +13,7 @@ angular
       };
   
       userAPI.getTimeline = function () {
-        return $http.get('/users');
+        return $http.get('/users/57b03cf99b4b16b4184fb8c6/tweets');
       };
   
       userAPI.postTweet = function (tweet) {

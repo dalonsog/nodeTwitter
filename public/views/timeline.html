@@ -9,10 +9,10 @@
         </div>
     </div>
     <div class="tweet-content">
-        <textarea class="new-tweet-text" ng-model="tweetText"></textarea>
+        <textarea class="new-tweet-text" ng-model="$parent.tweetText"></textarea>
     </div>
     <div class="tweet-footer">
-        <div class="tweet-chars-number">{{140 - tweetText.length}}</div>
+        <div class="tweet-chars-number">{{140 - $parent.tweetText.length}}</div>
         <div class="tweet-button" ng-click="sendTweet()">Tweet</div>
         <div style="clear: both;"></div>
     </div>

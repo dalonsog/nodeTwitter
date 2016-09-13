@@ -15,14 +15,8 @@ angular
         .state('app', {
           url:'/',
           views: {
-              'sidebar': { 
-                templateUrl: 'views/sidebar-user.html',
-                controller: 'basicDetailController'
-              },
-              'timeline': { 
-                templateUrl: 'views/timeline.html',
-                controller: 'timelineController'
-              }
+            'sidebar': { templateUrl: 'views/sidebar-user.html' },
+            'timeline': { templateUrl: 'views/timeline.html' }
           }
         });
       

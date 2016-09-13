@@ -16,10 +16,9 @@ var verify = require('../controllers/authentication').verifyUser;
 router.get('/', userController.getUsers);
 router.get('/:userId', userController.getUser);
 router.get('/:userId/tweets', userController.getTweets);
-
-router.get('/tweets', verify, userController.getTimeline);
-
 router.post('/:userId/follow', verify, userController.followUser);
 router.delete('/:userId/follow', verify, userController.unfollowUser);
+
+router.get('/timeline', verify, userController.getTimeline);
 
 module.exports = router;

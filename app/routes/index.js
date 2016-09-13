@@ -26,7 +26,7 @@ router.get('/login', function (req, res, next) {
 });
 router.post('/login', authController.login);
 
-// Login routes
+// Logout routes
 router.get('/logout', authController.logout);
 
 // Ping route for testing

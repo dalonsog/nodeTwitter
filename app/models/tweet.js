@@ -16,7 +16,7 @@ var Tweet = new Schema({
 /**
 **
 **/
-Tweet.methods.getBasicDetail = function () {
+Tweet.methods.getBasicDetails = function () {
   return {
     id: this._id,
     text: this.text,
