@@ -69,6 +69,7 @@ User.methods.generateJwt = function () {
 **/
 User.methods.getBasicDetails = function () {
   return {
+    id: this._id,
     name: this.name,
     screenname: '@' + this.screenname,
     avatar: this.avatar,

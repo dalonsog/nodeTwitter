@@ -25,15 +25,21 @@ angular
       };
 
       $scope.follow = function (user) {
-        console.log(user);
+        var i = $scope.users.findIndex(e => e._id === user._id);
+
+        if (i === -1) return;
+
+        userAPI.followUser(user).success(function () {
+          $scope.users.splice(i, 1);
+        });
       };
       
       userAPI.getDetail().success(function (response) {
         $scope.user = response;
-      });
-
-      userAPI.getUsers().success(function (response) {
-        $scope.users = response;
+        
+        userAPI.getUsers().success(function (response) {
+          $scope.users = response.filter(e => e._id !== $scope.user.id);
+        });
       });
       
       userAPI.getTimeline().success(function (response) {

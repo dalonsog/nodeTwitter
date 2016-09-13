@@ -119,6 +119,7 @@ function _followHandler (followerId, followedId, action) {
           return;
         }
         
+        console.log("hola");
         if (action === 'follow') _follow(follower, followed);
         else _unfollow(follower, followed);
 
@@ -144,6 +145,7 @@ function _followHandler (followerId, followedId, action) {
 
 
 function _follow (follower, followed) {
+  console.log("A SEGUIR!!!");
   var index = follower.following.indexOf(followed._id);
   if (index === -1) follower.following.push(followed);
   
@@ -151,7 +153,7 @@ function _follow (follower, followed) {
   if (index === -1) followed.followers.push(follower);
 }
 
-function _follow (follower, followed) {
+function _unfollow (follower, followed) {
   var index = follower.following.indexOf(followed._id);
   if (index !== -1) follower.following.splice(index, 1);
 
