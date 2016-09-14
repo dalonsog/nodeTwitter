@@ -2,7 +2,6 @@
 
 angular
   .module('nodeTwitter.controllers', [])
-  
   .controller('mainController', [
     '$scope', 
     'userAPI', 
@@ -12,11 +11,14 @@ angular
       $scope.sendTweet = function () {
         if (!$scope.tweetText.length) return;
 
-        var tweet = {}
-  
-        tweet.text = $scope.tweetText;
-        tweet.createdAt = new Date();
-        
+        var tweet = {
+          text: $scope.tweetText,
+          createdAt: new Date(),
+          author: $scope.user,
+          retweets: [],
+          likes: []
+        };
+
         userAPI.postTweet(tweet).success(function () {
           $scope.timeline.splice(0, 0, tweet);
           $scope.user.tweets += 1;
@@ -31,6 +33,7 @@ angular
 
         userAPI.followUser(user).success(function () {
           $scope.users.splice(i, 1);
+          $scope.user.following += 1;
         });
       };
       

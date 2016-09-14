@@ -2,7 +2,6 @@
 
 angular
   .module('nodeTwitter.services', [])
-  
   .factory('userAPI', [
     '$http',
     function ($http) {
@@ -15,9 +14,13 @@ angular
       userAPI.getUsers = function () {
         return $http.get('/users');
       };
+
+      userAPI.getUser = function (user) {
+        return $http.get('/users/' + user._id);
+      };
   
       userAPI.getTimeline = function () {
-        return $http.get('/users/57b03cf99b4b16b4184fb8c6/tweets');
+        return $http.get('/timeline');
       };
 
       userAPI.followUser = function (user) {

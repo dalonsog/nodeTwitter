@@ -24,7 +24,7 @@ module.exports.getUser = function (req, res) {
     .exec(function (err, user) {
       res.status(200).json(user.getBasicDetails());
     });
-  };
+};
 
 module.exports.getTweets = function (req, res) {
   User
@@ -45,38 +45,46 @@ module.exports.getTweets = function (req, res) {
 };
 
 module.exports.getTimeline = function (req, res) {
-  // If no user ID exists in the JWT return a 401
-  if (!req.decoded._id) {
-    res.status(401).json({
-      "message" : "UnauthorizedError: private profile"
-    });
-  } else {
-    // Otherwise continue
-    User
-      .findById(req.decoded._id)
-      .populate({
-        path: 'following',
+  User
+    .findById(req.decoded._id)
+    .select({ tweets: 1, following: 1 })
+    .populate([{
+      path: 'following',
+      select: 'tweets',
+      populate: {
+        path: 'tweets',
+        select: 'author text createdAt likes retweets',
         populate: {
-          path: 'tweets',
-          select: '_id text createdAt likes retweets',
-          options: { sort: { 'createdAt': -1 } }
+          path: 'author',
+          select: 'name screenname avatar'
         }
-      })
-      .exec(function (err, user) {
-        if (err) {
-          throw err;
-          res.status(500);
-        }
+      }
+    }, {
+      path: 'tweets', 
+      select: 'author text createdAt likes retweets',
+      populate: {
+        path: 'author',
+        select: 'name screenname avatar'
+      }
+    }])
+    .exec(function (err, user) {
+      if (err) {
+        res.status(500).json(err);
+        return;
+      }
 
-        var tweets = [];
+      var tweets = user.tweets.slice(0);
 
-        user.following.forEach(following => {
-          tweets = tweets.concat(following.tweets);
-        });
-
-        res.status(200).json(tweets);
+      user.following.forEach(following => {
+        tweets = tweets.concat(following.tweets);
       });
-  }
+
+      tweets.sort((a, b) => 
+        (new Date(b.createdAt)).getTime() - (new Date(a.createdAt)).getTime()
+      );
+
+      res.status(200).json(tweets);
+    });
 };
 
 /**
@@ -119,7 +127,6 @@ function _followHandler (followerId, followedId, action) {
           return;
         }
         
-        console.log("hola");
         if (action === 'follow') _follow(follower, followed);
         else _unfollow(follower, followed);
 
@@ -143,9 +150,7 @@ function _followHandler (followerId, followedId, action) {
   });
 }
 
-
 function _follow (follower, followed) {
-  console.log("A SEGUIR!!!");
   var index = follower.following.indexOf(followed._id);
   if (index === -1) follower.following.push(followed);
   

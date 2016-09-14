@@ -5,6 +5,7 @@ var path = require('path');
 var router = express.Router();
 var profileController = require('../controllers/profile');
 var authController = require('../controllers/authentication');
+var userController = require('../controllers/user');
 
 // Index route
 router.get('/', authController.verifyUser, function (req, res, next) {
@@ -28,6 +29,8 @@ router.post('/login', authController.login);
 
 // Logout routes
 router.get('/logout', authController.logout);
+
+router.get('/timeline', authController.verifyUser, userController.getTimeline);
 
 // Ping route for testing
 router.post('/ping', function (req, res, next) {

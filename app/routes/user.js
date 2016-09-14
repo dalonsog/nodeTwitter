@@ -19,6 +19,4 @@ router.get('/:userId/tweets', userController.getTweets);
 router.post('/:userId/follow', verify, userController.followUser);
 router.delete('/:userId/follow', verify, userController.unfollowUser);
 
-router.get('/timeline', verify, userController.getTimeline);
-
 module.exports = router;
