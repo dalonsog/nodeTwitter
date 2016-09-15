@@ -9,7 +9,7 @@ angular
       $scope.tweetText = '';
 
       $scope.sendTweet = function () {
-        if (!$scope.tweetText.length) return;
+        if (!$scope.tweetText.length || $scope.tweetText.length > 140) return;
 
         var tweet = {
           text: $scope.tweetText,

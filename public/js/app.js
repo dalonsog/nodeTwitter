@@ -2,6 +2,7 @@
 
 angular
   .module('nodeTwitter', [
+    'monospaced.elastic',
     'nodeTwitter.services',
     'nodeTwitter.controllers',
     'ui.router', 
