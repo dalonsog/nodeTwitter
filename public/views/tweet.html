@@ -2,10 +2,10 @@
     <div class="tweet-header">
         <a class="tweet-user-link">
             <div class="tweet-avatar">
-                <img src="/images/avatar.jpg">
+                <img src="/images/avatar/{{$ctrl.tweet.author.avatar}}">
             </div>
             <div class="tweet-name">{{$ctrl.tweet.author.name}}</div>
-            <div class="tweet-screenname">@{{$ctrl.tweet.author.screenname}}</div>
+            <div class="tweet-screenname">{{$ctrl.tweet.author.screenname}}</div>
         </a>
         <div class="tweet-time">- {{$ctrl.tweet.createdAt}}</div>
     </div>

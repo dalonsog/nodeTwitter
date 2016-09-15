@@ -1,7 +1,7 @@
 <!-- User sidebar -->
 <div class="sidebar">
     <div class="sidebar-avatar">
-        <img src="/images/avatar.jpg">
+        <img src="/images/avatar/{{user.avatar}}">
     </div>
     <div class="sidebar-user-info">
         <div class="sidebar-user-name">{{user.name}}</div>
@@ -33,10 +33,10 @@
         <div class="sidebar-user">
             <a class="tweet-user-link">
                 <div class="tweet-avatar">
-                    <img src="/images/avatar.jpg">
+                    <img src="/images/avatar/{{user.avatar}}">
                 </div>
                 <div class="tweet-name">{{user.name}}</div>
-                <div class="tweet-screenname">@{{user.screenname}}</div>
+                <div class="tweet-screenname">{{user.screenname}}</div>
             </a>
             <div class="follow-button" ng-click="follow(user)">
                 <i class="fa fa-user-plus" aria-hidden="true"></i>

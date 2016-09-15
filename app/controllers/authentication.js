@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 var User = require('../models/user');
 var jwt = require('jsonwebtoken');
 
-const COOKIE_MAX_AGE = 30 * 60 * 1000;
+const COOKIE_MAX_AGE = 7 * 24 * 60 * 60 * 1000;
 
 /**
 **
@@ -22,7 +22,7 @@ module.exports.register = function (req, res) {
     .then(function (user) {
       var token = user.generateJwt();
 
-      res.cookie('authToken', token, { maxAge: 60 * 1000 });
+      res.cookie('authToken', token, { maxAge: COOKIE_MAX_AGE });
       
       res.redirect('/');
     })
@@ -101,26 +101,24 @@ function _createUser(userData) {
   var promise = new Promise(function (resolve, reject) {
     var user = new User();
 
-    //User.findOne({ email: 'danirhoads@gmail.com' }, function (err, dani) {
-      //if (err) reject(err);
+    user.name = userData.name;
+    user.screenname = '@' + userData.name;
+    user.email = userData.email;
+    user.avatar = 'default' + _randomRange(1, 4) + '.jpg';
+    user.setPassword(userData.password);
+    
+    user.save(function (err) {
+      if (err) reject(err);
 
-      user.name = userData.name;
-      user.screenname = userData.name;
-      user.email = userData.email;
-      user.setPassword(userData.password);
-      //user.following.push(dani);
-      
-      user.save(function (err) {
-        if (err) reject(err);
-
-        resolve(user);
-      });
-      
-    //});
-      
+      resolve(user);
+    });
   });
 
   return promise;
+}
+
+function _randomRange (min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 /**
