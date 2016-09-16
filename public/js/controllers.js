@@ -56,7 +56,7 @@ angular
         });
       }
 
-      _getTimeline(new Date());
+      _getTimeline(new Date(0));
     }
   ])
   .controller('searchController', [
