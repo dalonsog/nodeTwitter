@@ -19,8 +19,8 @@ angular
         return $http.get('/users/' + user._id);
       };
   
-      userAPI.getTimeline = function () {
-        return $http.get('/timeline');
+      userAPI.getTimeline = function (options) {
+        return $http.post('/timeline', options);
       };
 
       userAPI.followUser = function (user) {

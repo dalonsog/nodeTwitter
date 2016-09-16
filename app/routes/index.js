@@ -30,7 +30,7 @@ router.post('/login', authController.login);
 // Logout routes
 router.get('/logout', authController.logout);
 
-router.get('/timeline', authController.verifyUser, userController.getTimeline);
+router.post('/timeline', authController.verifyUser, userController.getTimeline);
 
 // Ping route for testing
 router.post('/ping', function (req, res, next) {

@@ -7,6 +7,7 @@ angular
     'userAPI', 
     function ($scope, userAPI) {
       $scope.tweetText = '';
+      $scope.timeline = [];
 
       $scope.sendTweet = function () {
         if (!$scope.tweetText.length || $scope.tweetText.length > 140) return;
@@ -45,9 +46,15 @@ angular
         });
       });
       
-      userAPI.getTimeline().success(function (response) {
-        $scope.timeline = response;
-      });
+      function _getTimeline (ops) {
+        userAPI.getTimeline(ops).success(function (response) {
+          $scope.timeline = response.concat($scope.timeline);
+
+          //setTimeout(_getTimeline.bind(this, [ops]), 5000);
+        });
+      }
+
+      _getTimeline();
     }
   ])
   .controller('searchController', [

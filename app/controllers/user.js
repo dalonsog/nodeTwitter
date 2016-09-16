@@ -47,43 +47,30 @@ module.exports.getTweets = function (req, res) {
 module.exports.getTimeline = function (req, res) {
   User
     .findById(req.decoded._id)
-    .select({ tweets: 1, following: 1 })
-    .populate([{
-      path: 'following',
-      select: 'tweets',
-      populate: {
-        path: 'tweets',
-        select: 'author text createdAt likes retweets',
-        populate: {
-          path: 'author',
-          select: 'name screenname avatar'
-        }
-      }
-    }, {
-      path: 'tweets', 
-      select: 'author text createdAt likes retweets',
-      populate: {
-        path: 'author',
-        select: 'name screenname avatar'
-      }
-    }])
+    .select({ following: 1 })
     .exec(function (err, user) {
       if (err) {
         res.status(500).json(err);
         return;
       }
 
-      var tweets = user.tweets.slice(0);
+      var ids = user.following.concat(req.decoded._id);
 
-      user.following.forEach(following => {
-        tweets = tweets.concat(following.tweets);
-      });
-
-      tweets.sort((a, b) => 
-        (new Date(b.createdAt)).getTime() - (new Date(a.createdAt)).getTime()
-      );
-
-      res.status(200).json(tweets);
+      Tweet
+        .find({ author: { $in: ids } })
+        .sort({ createdAt: -1 })
+        .populate({
+          path: 'author',
+          select: 'name screenname avatar'
+        })
+        .exec(function (err, tweets) {
+          if (err) {
+            res.status(500).json(err);
+            return;
+          }
+          
+          res.status(200).json(tweets);
+        });
     });
 };
 
