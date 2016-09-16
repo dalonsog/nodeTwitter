@@ -46,15 +46,17 @@ angular
         });
       });
       
-      function _getTimeline (ops) {
+      function _getTimeline (date) {
+        var ops = { lastDate: date.toISOString() };
+
         userAPI.getTimeline(ops).success(function (response) {
           $scope.timeline = response.concat($scope.timeline);
 
-          //setTimeout(_getTimeline.bind(this, [ops]), 5000);
+          //setTimeout(_getTimeline.bind(this, new Date(0)), 5000);
         });
       }
 
-      _getTimeline();
+      _getTimeline(new Date());
     }
   ])
   .controller('searchController', [

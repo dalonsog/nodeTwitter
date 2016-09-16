@@ -57,7 +57,7 @@ module.exports.getTimeline = function (req, res) {
       var ids = user.following.concat(req.decoded._id);
 
       Tweet
-        .find({ author: { $in: ids } })
+        .find({ author: { $in: ids }, createdAt: { $gt: req.body.lastDate } })
         .sort({ createdAt: -1 })
         .populate({
           path: 'author',
