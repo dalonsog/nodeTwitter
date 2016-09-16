@@ -36,7 +36,7 @@ angular
           $scope.user.following += 1;
         });
       };
-      
+
       userAPI.getDetail().success(function (response) {
         $scope.user = response;
         
@@ -48,5 +48,13 @@ angular
       userAPI.getTimeline().success(function (response) {
         $scope.timeline = response;
       });
+    }
+  ])
+  .controller('searchController', [
+    '$scope',
+    function ($scope) {
+      $scope.openSearch = function () {
+        console.log('hola');
+      };
     }
   ]);
