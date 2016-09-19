@@ -5,39 +5,31 @@ var User = require('../models/user');
 var Tweet = require('../models/tweet');
 
 module.exports.tweet = function (req, res) {
-  // If no user ID exists in the JWT return a 401
-  if (!req.decoded._id) {
-    res.status(401).json({
-      "message" : "UnauthorizedError: private profile"
-    });
-  } else {
-    // Otherwise continue
-    User
-      .findById(req.decoded._id, function (err, user) {
-        if (err) {
-          throw err;
-          res.status(500);
-        }
+  User
+    .findById(req.decoded._id, function (err, user) {
+      if (err) {
+        throw err;
+        res.status(500);
+      }
 
-        _createTweet(req.body, user)
-          .then(function (tweet) {
-            user.tweets.push(tweet);
-            
-            user.save(function (err) {
-              if (err) {
-                throw err;
-                res.status(500);
-              }
+      _createTweet(req.body, user)
+        .then(function (tweet) {
+          user.tweets.push(tweet);
+          
+          user.save(function (err) {
+            if (err) {
+              throw err;
+              res.status(500);
+            }
 
-              res.status(200).json({ tweetId: tweet._id });
-            });
-          })
-          .catch(function (err) {
-            throw err;
-            res.status(500);   
+            res.status(200).json({ tweetId: tweet._id });
           });
-      });
-  }
+        })
+        .catch(function (err) {
+          throw err;
+          res.status(500);   
+        });
+    });
 };
 
 /**

@@ -8,20 +8,14 @@ angular
     function ($scope, userAPI) {
       $scope.tweetText = '';
       $scope.timeline = [];
+      $scope.newTweets = [];
 
       $scope.sendTweet = function () {
         if (!$scope.tweetText.length || $scope.tweetText.length > 140) return;
 
-        var tweet = {
-          text: $scope.tweetText,
-          createdAt: new Date(),
-          author: $scope.user,
-          retweets: [],
-          likes: []
-        };
+        var tweet = { text: $scope.tweetText };
 
         userAPI.postTweet(tweet).success(function () {
-          $scope.timeline.splice(0, 0, tweet);
           $scope.user.tweets += 1;
           $scope.tweetText = '';
         });
@@ -45,14 +39,25 @@ angular
           $scope.users = response.filter(e => e._id !== $scope.user.id);
         });
       });
+
+      $scope.renderNewTweets = function () {
+        $scope.timeline = $scope.newTweets.splice(0).concat($scope.timeline);
+      }
       
       function _getTimeline (date) {
         var ops = { lastDate: date.toISOString() };
 
         userAPI.getTimeline(ops).success(function (response) {
-          $scope.timeline = response.concat($scope.timeline);
+          if (!$scope.timeline.length)
+            $scope.timeline = response.concat($scope.timeline);
+          else
+            $scope.newTweets = response.concat($scope.newTweets);
 
-          //setTimeout(_getTimeline.bind(this, new Date(0)), 5000);
+          var lastDate = response.length 
+                         ? new Date(response[0].createdAt) 
+                         : date;
+
+          setTimeout(_getTimeline.bind(this, lastDate), 5000);
         });
       }
 

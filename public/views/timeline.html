@@ -17,6 +17,9 @@
         <div style="clear: both;"></div>
     </div>
 </div>
+<div class="new-tweets-container" ng-class="{show: newTweets.length}" ng-click="renderNewTweets()">
+    <div class="new-tweets-text">{{newTweets.length}} new tweets</div>
+</div>
 <div ng-repeat="tweet in timeline">
     <tweet tweet="tweet"></tweet>
 </div>
