@@ -431,7 +431,7 @@ body {
         width: calc(100% - 320px);
     }
 
-    .navbar-content {
+    .navbar .navbar-content {
         width: 100%;
         padding: 0px 20px;
         margin: 0px auto;
@@ -446,11 +446,11 @@ body {
 }
 
 @media (min-width: 992px) {
-    .button-label {
+    .navbar .button-label {
         display: inline-block;
     }
 
-    .button {
+    .navbar .button {
         width: auto;
     }
 }
@@ -460,7 +460,7 @@ body {
         width: 1160px;
     }
 
-    .navbar-content {
+    .navbar .navbar-content {
         width: 1160px;
     }
 
