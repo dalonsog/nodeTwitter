@@ -78,6 +78,11 @@ body {
     cursor: pointer;
     box-sizing: border-box;
     line-height: 30px;
+    position: relative;
+}
+
+.navbar .button.disabled {
+    color: #d0d0d0;
 }
 
 .navbar .button.right {
@@ -97,7 +102,7 @@ body {
     background-color: #10397E;
 }
 
-.navbar .button:not(.active):hover {
+.navbar .button:not(.active):not(.disabled):hover {
     background-color: #1D4EA2;
 }
 
@@ -106,6 +111,26 @@ body {
     font-size: 14px;
     line-height: 24px;
     margin-left: 5px;
+}
+
+.navbar .button.disabled .popup {
+    position: absolute;
+    font-size: 12px;
+    color: #eee;
+    background-color: #555;
+    padding: 0px 10px;
+    bottom: -15px;
+    left: -25px;
+    height: 25px;
+    width: 100px;
+    line-height: 25px;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.navbar .button.disabled:hover .popup {
+    opacity: 1;
+    bottom: -25px;
 }
 
 /**********
