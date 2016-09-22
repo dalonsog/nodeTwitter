@@ -312,8 +312,10 @@ body {
 .tweet-screenname,
 .tweet-time {
     display: inline-block;
-    vertical-align: top;
-    line-height: 12px;
+    top: -2px;
+    position: relative;
+    height: 14px;
+    line-height: 14px;
 }
 
 .tweet-name {
