@@ -64,6 +64,23 @@ angular
       _getTimeline(new Date(0));
     }
   ])
+  .controller('userPopupController', [
+    '$scope',
+    'userAPI',
+    function ($scope, userAPI) {
+      $scope.showUser = false;
+      $scope.userPopup = {};
+
+      $scope.toggleShowUser = function () {
+        var user = this.$parent.$parent.tweet.author;
+
+        userAPI.getUser(user).success(function (response) {
+          $scope.userPopup = response;
+          $scope.showUser = true;
+        });
+      };
+    }
+  ])
   .controller('searchController', [
     '$scope',
     function ($scope) {

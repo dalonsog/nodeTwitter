@@ -1,6 +1,31 @@
-<div class="tweet">
+<div class="tweet" ng-controller="userPopupController">
+    <div class="user-popup" ng-class="{show: showUser}">
+        <div class="sidebar-avatar">
+            <img src="/images/avatar/{{userPopup.avatar}}">
+        </div>
+        <div class="sidebar-user-info">
+            <div class="sidebar-user-name">{{userPopup.name}}</div>
+            <div class="sidebar-user-screenname">{{userPopup.screenname}}</div>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="sidebar-user-extra">
+            <div class="sidebar-extra-container">
+                <div class="sidebar-extra-header">TWEETS</div>
+                <div class="sidebar-extra-content">{{userPopup.tweets}}</div>
+            </div>
+            <div class="sidebar-extra-container">
+                <div class="sidebar-extra-header">FOLLOWING</div>
+                <div class="sidebar-extra-content">{{userPopup.following}}</div>
+            </div>
+            <div class="sidebar-extra-container">
+                <div class="sidebar-extra-header">FOLLOWERS</div>
+                <div class="sidebar-extra-content">{{userPopup.followers}}</div>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
     <div class="tweet-header">
-        <a class="tweet-user-link">
+        <a class="tweet-user-link" ng-mouseover="toggleShowUser()" ng-mouseleave="showUser = false">
             <div class="tweet-avatar">
                 <img src="/images/avatar/{{$ctrl.tweet.author.avatar}}">
             </div>
