@@ -119,8 +119,8 @@ body {
     color: #eee;
     background-color: #555;
     padding: 0px 10px;
-    bottom: -15px;
-    left: -25px;
+    bottom: -25px;
+    left: calc(50% - 60px);
     height: 25px;
     width: 100px;
     line-height: 25px;
@@ -128,9 +128,21 @@ body {
     transition: all 0.3s;
 }
 
+.navbar .button.disabled .popup:before {
+    content: '\A';
+    border-bottom: 7px solid #555;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    height: 0px;
+    width: 0px;
+    position: absolute;
+    top: -7px;
+    left: calc(50% - 10px);
+}
+
 .navbar .button.disabled:hover .popup {
     opacity: 1;
-    bottom: -25px;
+    bottom: -32px;
 }
 
 /**********
