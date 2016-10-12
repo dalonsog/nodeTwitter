@@ -29,6 +29,9 @@ angular
         });
       
       $urlRouterProvider.otherwise('/');
-      $locationProvider.html5Mode({ enabled: true, requireBase: false });
+
+      // Temporarily removed because it caused the /logout link not to
+      // work properly. 
+      //$locationProvider.html5Mode({ enabled: true, requireBase: false });
     }
   ]);

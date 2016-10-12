@@ -12,6 +12,7 @@ var User = new Schema({
   name: { type: String, required: true },
   screenname: String,
   avatar: String,
+  bio: String,
   hash: String,
   salt: String,
   tweets: [{ type: Schema.ObjectId, ref: 'Tweet' }],
@@ -72,6 +73,7 @@ User.methods.getBasicDetails = function () {
     id: this._id,
     name: this.name,
     screenname: this.screenname,
+    bio: this.bio,
     avatar: this.avatar,
     tweets: this.tweets.length,
     followers: this.followers.length,
@@ -86,6 +88,7 @@ User.methods.getFullDetails = function () {
   return {
     name: this.name,
     screenname: this.screenname,
+    bio: this.bio,
     avatar: this.avatar,
     tweets: this.tweets,
     followers: this.followers,

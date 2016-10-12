@@ -105,6 +105,7 @@ function _createUser(userData) {
     user.screenname = '@' + userData.name;
     user.email = userData.email;
     user.avatar = 'default' + _randomRange(1, 4) + '.jpg';
+    user.bio = "Baby Birdie's in da haus!";
     user.setPassword(userData.password);
     
     user.save(function (err) {
