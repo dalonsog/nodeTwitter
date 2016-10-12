@@ -71,7 +71,7 @@ User.methods.getBasicDetails = function () {
   return {
     id: this._id,
     name: this.name,
-    screenname: '@' + this.screenname,
+    screenname: this.screenname,
     avatar: this.avatar,
     tweets: this.tweets.length,
     followers: this.followers.length,
@@ -85,7 +85,7 @@ User.methods.getBasicDetails = function () {
 User.methods.getFullDetails = function () {
   return {
     name: this.name,
-    screenname: '@' + this.screenname,
+    screenname: this.screenname,
     avatar: this.avatar,
     tweets: this.tweets,
     followers: this.followers,
