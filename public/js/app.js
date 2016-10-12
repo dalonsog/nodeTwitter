@@ -11,7 +11,8 @@ angular
   .config([
     '$stateProvider',
     '$urlRouterProvider',
-    function ($stateProvider, $urlRouterProvider) {
+    '$locationProvider',
+    function ($stateProvider, $urlRouterProvider, $locationProvider) {
       $stateProvider
         .state('app', {
           url:'/',
@@ -28,5 +29,6 @@ angular
         });
       
       $urlRouterProvider.otherwise('/');
+      $locationProvider.html5Mode({ enabled: true, requireBase: false });
     }
   ]);
