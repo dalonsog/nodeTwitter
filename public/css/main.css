@@ -145,6 +145,28 @@ body {
     bottom: -32px;
 }
 
+.alert {
+    width: 340px;
+    height: 40px;
+    position: fixed;
+    top: 0px;
+    left: calc(50% - 170px);
+    background-color: white;
+    padding: 10px;
+    box-sizing: border-box;
+    color: #777;
+    text-align: center;
+    border: 1px solid #85A4D9;
+    z-index: 1;
+    opacity: 0;
+    transition: top 0.3s, opacity 0.3s;
+}
+
+.alert.show {
+    top: 50px;
+    opacity: 1;
+}
+
 /**********
 * Sidebar *
 ***********/

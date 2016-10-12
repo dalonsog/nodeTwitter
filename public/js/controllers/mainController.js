@@ -5,6 +5,18 @@ function mainController ($scope, userAPI, $state) {
   $scope.timeline = [];
   $scope.newTweets = [];
 
+  $scope.alertText = '';
+  $scope.isAlertShown = false;
+  $scope.showAlert = function (text) {
+    if (text) $scope.alertText = text;
+    
+    $scope.isAlertShown = true;
+    
+    setTimeout(function () {
+      $scope.isAlertShown = false;
+    }, 3000);
+  };
+
   $scope.sendTweet = function () {
     if (!$scope.tweetText.length || $scope.tweetText.length > 140) return;
 
@@ -13,6 +25,7 @@ function mainController ($scope, userAPI, $state) {
     userAPI.postTweet(tweet).success(function () {
       $scope.user.tweets += 1;
       $scope.tweetText = '';
+      $scope.showAlert('Your tweet has been posted succesfully!');
     });
   };
 
