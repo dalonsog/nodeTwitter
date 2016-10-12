@@ -4,6 +4,7 @@
   "description": "A MEAN stack based Twitter app. ",
   "main": "app.js",
   "scripts": {
+    "postinstall": "bower install",
     "start": "node app/server",
     "test": "./node_modules/.bin/mocha --reporter spec"
   },
