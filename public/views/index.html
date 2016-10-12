@@ -10,18 +10,18 @@
         <!-- Custom Styles -->
         <link rel="stylesheet" href="css/main.css"/>
     </head>
-    <body>
+    <body ng-controller="mainController">
         <div class="navbar">
             <div class="navbar-content">
-                <div class="button active">
+                <a ui-sref="app" class="button" ng-class="{active: isActivePage('app')}">
                     <i class="fa fa-home" aria-hidden="true"></i>
                     <div class="button-label">Home</div>
-                </div>
-                <div class="button disabled">
-                    <div class="popup">Coming soon...</div>
+                </a>
+                <a ui-sref="app.notifications" class="button" ng-class="{active: isActivePage('app.notifications')}">
+                    <!--<div class="popup">Coming soon...</div>-->
                     <i class="fa fa-bell" aria-hidden="true"></i>
                     <div class="button-label">Notifications</div>
-                </div>
+                </a>
                 <div class="button disabled">
                     <div class="popup">Coming soon...</div>
                     <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -42,7 +42,7 @@
             </div>
         </div>
         <div class="container">
-            <div class="main-content" ng-controller="mainController">
+            <div class="main-content">
                 <div class="sidebar-container" ui-view="sidebar"></div>
                 
                 <div class="tweets-container">

@@ -5,7 +5,8 @@ angular
   .controller('mainController', [
     '$scope', 
     'userAPI', 
-    function ($scope, userAPI) {
+    '$state',
+    function ($scope, userAPI, $state) {
       $scope.tweetText = '';
       $scope.timeline = [];
       $scope.newTweets = [];
@@ -62,6 +63,10 @@ angular
       }
 
       _getTimeline(new Date(0));
+
+      $scope.isActivePage = function (page) {
+        return $state.is(page);
+      };
     }
   ])
   .controller('userPopupController', [

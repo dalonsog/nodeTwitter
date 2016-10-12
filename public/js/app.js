@@ -19,6 +19,12 @@ angular
             'sidebar': { templateUrl: 'views/sidebar.html' },
             'timeline': { templateUrl: 'views/timeline.html' }
           }
+        })
+        .state('app.notifications', {
+          url:'notifications',
+          views: {
+            'timeline@': { templateUrl: 'views/notifications.html' }
+          }
         });
       
       $urlRouterProvider.otherwise('/');

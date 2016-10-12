@@ -10,4 +10,10 @@ angular
     bindings: {
       tweet: '<'
     }
+  })
+  .component('loader', {
+    templateUrl: 'views/loader.html',
+    bindings: {
+      tweet: '<'
+    }
   });
