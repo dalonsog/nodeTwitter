@@ -31,8 +31,7 @@ app.use(favicon('./public/images/favicon.ico'));
 
 // Static
 app.use('/views', express.static('./public/views'));
-app.use('/libs', express.static('./public/libs'));
-app.use('/js', express.static('./public/js'));
+app.use('/js', express.static('./dist'));
 app.use('/css', express.static('./public/css'));
 app.use('/images', express.static('./public/images'));
 
