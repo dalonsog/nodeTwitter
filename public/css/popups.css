@@ -1,0 +1,16 @@
+/*************
+* User popup *
+**************/
+
+.user-popup {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #85A4D9;
+    z-index: 1;
+    padding: 20px;
+}
+
+.user-popup.show {
+    display: block;
+}

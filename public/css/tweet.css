@@ -1,0 +1,193 @@
+/**********
+* Tweet *
+***********/
+.tweets-container {
+    width: 100%;
+    border: 1px solid #85A4D9;
+    box-sizing: border-box;
+}
+
+.new-tweet {
+    padding: 20px;
+    padding-left: 80px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-bottom: 1px dashed rgba(133, 164, 217, 0.8);
+}
+
+.tweet {
+    padding: 20px;
+    padding-left: 80px;
+    background-color: white;
+    border-bottom: 1px solid rgba(133, 164, 217, 0.1);/*#85A4D9;*/
+}
+
+.tweet:hover {
+    background-color: #f9f9f9;
+}
+
+.new-tweet .tweet-header {
+    opacity: 0.7
+}
+
+.tweet-content {
+    word-break: break-all;
+}
+
+.tweet-footer {
+    margin-top: 10px;
+}
+
+.tweet-user-link {
+    position: relative;
+    cursor: pointer;
+}
+
+.tweet-user-link:hover .tweet-name {
+    color: #85A4D9;
+    text-decoration: underline;
+}
+
+.tweet-avatar {
+    width: 50px;
+    height: 50px;
+    background-color: blue;
+    position: absolute;
+    left: -60px;
+}
+
+.tweet-avatar img {
+    width: 100%;
+    height: 100%;
+}
+
+.tweet-name,
+.tweet-screenname,
+.tweet-time {
+    display: inline-block;
+    top: -2px;
+    position: relative;
+    height: 14px;
+    line-height: 14px;
+}
+
+.tweet-name {
+    font-weight: bold;
+}
+
+.tweet-screenname,
+.tweet-time {
+    color: #999;
+    font-size: 14px;
+}
+
+.tweet-text {
+    clear: both;
+}
+
+.tweet-extra-container {
+    float: left;
+    cursor: pointer;
+    color: #999;
+    font-weight: bold;
+    width: 50%
+}
+
+.tweet-extra-container.retweet:hover,
+.tweet-extra-container.retweet.active {
+    color: #0E9A87;
+}
+
+.tweet-extra-container.fav:hover,
+.tweet-extra-container.fav.active {
+    color: #FF6767;
+}
+
+.tweet-extra-icon,
+.tweet-extra-content {
+    display: inline-block;
+    font-size: 14px;
+}
+
+.tweet-extra-icon.fa-retweet {
+    font-size: 16px;
+}
+
+.tweet-extra-content {
+    margin-left: 10px;
+}
+
+.new-tweet-text {
+    width: calc(100% - 22px);
+    border: 1px dashed #85A4D9;
+    max-height: 18px;
+    word-wrap: break-word;
+    resize: none;
+    font-family: inherit;
+    padding: 5px 10px;
+    color: inherit;
+    line-height: 18px;
+}
+
+.new-tweet-text:focus,
+.new-tweet-text:not(.ng-empty) {
+    max-height: none;
+    height: auto;
+}
+
+.tweet-chars-number {
+    float: left;
+}
+
+.tweet-chars-number.limit {
+    color: #FF6767;
+}
+
+.tweet-button {
+    float: right;
+    padding: 8px 20px;
+    background-color: #5980C2;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tweet-button.disabled {
+    cursor: not-allowed;
+    background-color: #85A4D9;
+}
+
+.tweet-button:not(.disabled):hover {
+    background-color: #1D4EA2;
+}
+
+.new-tweets-container {
+    width: 100%;
+    height: 0px;
+    color: #3A65AD;
+    background-color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    font-size: inherit;
+    line-height: 40px;
+    text-align: center;
+    transition: height 0s;
+    box-sizing: border-box;
+}
+
+.new-tweets-container.show {
+    height: 40px;
+    transition: height 0.3s;
+}
+
+.new-tweets-container .new-tweets-text {
+    display: none;
+}
+
+.new-tweets-container.show .new-tweets-text {
+    display: block;
+}
+
+.new-tweets-container:hover {
+    background-color: #85A4D9;
+    color: white;
+}

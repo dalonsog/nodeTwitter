@@ -1,0 +1,95 @@
+/*****************
+* COLOR PALETTE 
+*
+* HEX
+*
+* Base: #3A65AD;
+* Light: #5980C2;
+* Lighter: #85A4D9;
+* Dark: #1D4EA2;
+* Darker: #10397E;
+*
+* Fav: #FF6767;
+* Retweet: #0E9A87;
+*
+* Background: #E4E9F2;
+*
+* RGB
+*
+* Base: rgb(58, 101, 173);
+* Light: rgb(89, 128, 194);
+* Lighter: rgb(133, 164, 217);
+* Dark: rgb(29, 78, 162);
+* Darker: rgb(16, 57, 126);
+*
+*******************/
+
+body {
+    background-color: #E4E9F2;
+    font-family: sans-serif;
+    color: #555;
+    font-size: 16px;
+    margin: 0px;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.sidebar-container,
+.tweets-container {
+    float: left;
+}
+
+/*********/
+
+@media (min-width: 768px) {
+    .sidebar {
+        display: block;
+    }
+
+    .main-content {
+        width: 100%;
+        padding: 20px;
+        margin: 0px auto;
+        box-sizing: border-box;
+    }
+
+    .tweets-container {
+        width: calc(100% - 320px);
+    }
+
+    .navbar .navbar-content {
+        width: 100%;
+        padding: 0px 20px;
+        margin: 0px auto;
+        box-sizing: border-box;
+    }
+
+    .tweet-extra-container {
+        width: auto;
+        margin-right: 50px;
+    }
+
+}
+
+@media (min-width: 992px) {
+    .navbar .button-label {
+        display: inline-block;
+    }
+
+    .navbar .button {
+        width: auto;
+    }
+}
+
+@media (min-width: 1200px) {
+    .main-content {
+        width: 1160px;
+    }
+
+    .navbar .navbar-content {
+        width: 1160px;
+    }
+
+}

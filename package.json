@@ -7,8 +7,8 @@
     "postinstall": "bower install",
     "start": "node app/server",
     "test": "./node_modules/.bin/mocha --reporter spec",
-    "build": "gulp build",
-    "build-dev": "gulp build-dev"
+    "build-dev": "gulp",
+    "build": "gulp --production"
   },
   "repository": {
     "type": "git",
@@ -47,8 +47,10 @@
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
+    "gulp-clean-css": "^2.0.13",
     "gulp-concat": "^2.6.0",
     "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7",
     "mocha": "^3.0.2",
     "pump": "^1.0.1"
   }

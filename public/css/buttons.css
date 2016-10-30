@@ -1,0 +1,30 @@
+/****************
+* Follow button *
+*****************/
+
+.follow-button {
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background-color: white;
+    border: 1px solid #85A4D9;
+    color: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.follow-button i.fa {
+    color: #85A4D9;
+    transition: all 0.3s;
+}
+
+.follow-button:hover {
+    background-color: #85A4D9;
+    color: white;
+}
+
+.follow-button:hover i.fa{
+    color: white;
+}
